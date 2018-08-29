@@ -1,0 +1,41 @@
+{
+    "name": "ewebite/autoslugger",
+    "description": ":description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Matteo Mangoni",
+            "email": "coding@ewebite.it",
+            "homepage": "https://codestudio.it"
+        }
+    ],
+    "homepage": "https://github.com/MattMangoni/laravel-autoslugger",
+    "keywords": ["Laravel", "AutoSlugger", "Slug", "Blogging"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ewebite\\AutoSlugger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ewebite\\AutoSlugger\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ewebite\\AutoSlugger\\AutoSluggerServiceProvider"
+            ],
+            "aliases": {
+                "AutoSlugger": "Ewebite\\AutoSlugger\\Facades\\AutoSlugger"
+            }
+        }
+    }
+}

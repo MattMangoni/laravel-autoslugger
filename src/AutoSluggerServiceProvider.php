@@ -13,37 +13,14 @@ class AutoSluggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'ewebite');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'ewebite');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        // Publishing is only necessary when using the CLI.
-        if ($this->app->runningInConsole()) {
+        $this->publishes([
+            __DIR__.'/../config/autoslugger.php' => config_path('autoslugger.php'),
+        ], 'autoslugger.config');
 
-            // Publishing the configuration file.
-            $this->publishes([
-                __DIR__.'/../config/autoslugger.php' => config_path('autoslugger.php'),
-            ], 'autoslugger.config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => base_path('resources/views/vendor/ewebite'),
-            ], 'autoslugger.views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/ewebite'),
-            ], 'autoslugger.views');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/ewebite'),
-            ], 'autoslugger.views');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        // Registering package commands.
+        // $this->commands([]);
     }
 
     /**
@@ -55,7 +32,6 @@ class AutoSluggerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/autoslugger.php', 'autoslugger');
 
-        // Register the service the package provides.
         $this->app->singleton('autoslugger', function ($app) {
             return new AutoSlugger;
         });

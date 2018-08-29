@@ -25,7 +25,7 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 If you discover any security related issues, please email author email instead of using the issue tracker.
 
 ## Credits
-- [Matteo Mangoni][https://codestudio.it]
+- [Matteo Mangoni](https://codestudio.it)
 
 ## License
 Please see the [license file](license.md) for more information.
